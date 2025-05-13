@@ -1,9 +1,14 @@
 # Cache Cleanup Script
-This script helps clean up the package cache, orphan packages with dependencies, configuration files, and all files in the '.cache' directory in the home folder.
+A simple Arch Linux maintenance script to clean package cache, remove orphaned packages & configs, and clear user’s ~/.cache.
+
+## Usage:
+Please run the following commands to download and run the script:
+```bash
+git clone https://github.com/Arch-Linux-notes/Arch-Cache-Cleanup-Script.git
+cd Arch-Cache-Cleanup-Script
+sudo chmod +x cache-cleanup.sh
+sudo ./cache-cleanup.sh
+```
 
 ## Notes:
 - This script works on the Arch Linux operating system.
-- You may add execution permissions to be able to run the script with the following command:
-```
-sudo chmod +x cache-cleanup.sh
-```

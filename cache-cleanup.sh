@@ -24,7 +24,7 @@ if [[ -n "$orphans" ]]; then
 	echo "Orphan packages detected:"
 	echo "$orphans"
 	echo "==> Cleaning orphan packages..."
-	sudo pacman -Rcuns $orphans
+	sudo pacman -Rns $orphans
 else
 	echo "No orphan packages found."
 fi

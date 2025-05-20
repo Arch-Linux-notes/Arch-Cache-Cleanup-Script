@@ -1,23 +1,28 @@
 #!/bin/bash
 
-#   ____           _           ____ _                              
-#  / ___|__ _  ___| |__   ___ / ___| | ___  __ _ _ __  _   _ _ __  
-# | |   / _` |/ __| '_ \ / _ \ |   | |/ _ \/ _` | '_ \| | | | '_ \ 
-# | |__| (_| | (__| | | |  __/ |___| |  __/ (_| | | | | |_| | |_) |
-#  \____\__,_|\___|_| |_|\___|\____|_|\___|\__,_|_| |_|\__,_| .__/ 
-#                                                           |_|    
+# Clear screen and show title
+clear
+echo '
+░█▀▀░█▀█░█▀▀░█░█░█▀▀░░░█▀▀░█░░░█▀▀░█▀█░█▀█░█░█░█▀█
+░█░░░█▀█░█░░░█▀█░█▀▀░░░█░░░█░░░█▀▀░█▀█░█░█░█░█░█▀▀
+░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░░
+'
 
 # Avoid some implicit errors
 set -euo pipefail
 
 # 1. Clean package cache
-echo "-------"
+echo '
+--------------------------------------------------
+'
 echo "==> Cleaning pacman cache..."
 sudo pacman -Sc
 sudo pacman -Scc
 
 # 2. Find orphan packages and remove them
-echo "-------"
+echo '
+--------------------------------------------------
+'
 pkglist=$(pacman -Qdtq 2>/dev/null || echo "")
 orphans=$(echo "$pkglist" | tr '\n' ' ' | xargs)
 if [[ -n "$orphans" ]]; then
@@ -30,7 +35,9 @@ else
 fi
 
 # 3. Clean cache folder
-echo "-------"
+echo '
+--------------------------------------------------
+'
 CACHE_DIR="$HOME/.cache"
 echo "Cache size before cleanup:"
 du -sh "$CACHE_DIR"
@@ -40,5 +47,7 @@ echo "Cache size after cleanup:"
 du -sh "$CACHE_DIR"
 
 # Script completed
-echo "-------"
+echo '
+--------------------------------------------------
+'
 echo "Cleanup complete!"

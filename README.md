@@ -4,8 +4,8 @@ A simple Arch Linux maintenance script to clean package cache, remove orphaned p
 ## Usage:
 Please run the following commands to download and run the script:
 ```bash
-git clone https://gitlab.com/arch-linux-notes/arch-cache-cleanup-script.git
-cd arch-cache-cleanup-script
+git clone https://github.com/Arch-Linux-notes/Arch-Cache-Cleanup-Script.git
+cd Arch-Cache-Cleanup-Script
 sudo chmod +x cache-cleanup.sh
 ./cache-cleanup.sh
 ```
